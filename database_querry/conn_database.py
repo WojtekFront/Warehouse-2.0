@@ -15,3 +15,16 @@ def connect_to_db():
     except psycopg2.OperationalError as error:
         print(f"Error connecting to database: {error}")
 
+
+# open connection
+connection, cursor = connect_to_db()
+
+# close connection to database
+def close_connection( connection, cursot):
+    try:
+        cursor.close()
+        connection. close()
+    except Exception as error:
+        print(f"Error closing connection to database: {error}")
+        exit(1)
+
