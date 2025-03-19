@@ -1,0 +1,1 @@
+<!-- to będzie połączenie do bazy -->
