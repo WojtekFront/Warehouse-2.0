@@ -1,54 +1,15 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kursy Walut NBP</title>
-   <link rel="stylesheet" href="style/style.css">
-</head>
-<body>
-
-<h1 style="text-align: center;">Aktualne Kursy Walut NBP</h1>
-
-<table id="currencyTable">
-    <thead>
-        <tr>
-            <th>Waluta</th>
-            <th>Kurs (PLN)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Wiersze z kursami walut będą tutaj wstawiane dynamicznie -->
-    </tbody>
-</table>
-
-<script>
-    // Waluty, które nas interesują
-    const selectedCurrencies = ['EUR', 'USD', 'GBP', 'CHF', 'CAD', 'AUD', 'CNY'];
-
-    // Pobieranie danych z API NBP
-    fetch('https://api.nbp.pl/api/exchangerates/tables/A?format=json')
-        .then(response => response.json())
-        .then(data => {
-            const rates = data[0].rates;  // Zawiera kursy walut
-
-            // Filtrujemy kursy tylko dla wybranych walut
-            const filteredRates = rates.filter(rate => selectedCurrencies.includes(rate.code));
-
-            // Wstawiamy kursy do tabeli HTML
-            const tableBody = document.querySelector('#currencyTable tbody');
-            filteredRates.forEach(rate => {
-                const row = `<tr>
-                                <td>${rate.currency} -    (${rate.code})</td> 
-                                <td>${rate.mid.toFixed(4)} PLN</td>
-                             </tr>`;
-                tableBody.innerHTML += row;
-            });
-        })
-        .catch(error => {
-            console.error('Błąd przy pobieraniu danych z API NBP:', error);
-        });
-</script>
-
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
 </html>
