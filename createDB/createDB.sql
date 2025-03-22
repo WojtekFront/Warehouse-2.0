@@ -9,19 +9,21 @@ CREATE TABLE IF NOT EXISTS zgloszenia (
     kolejnosc_zgl INT(11),
     priorytet_zgl TINYINT(1),
     zrodlo_zgl VARCHAR(30)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci;
 
 CREATE TABLE IF NOT EXISTS zgloszenia_odpowiedzi(
-    id INT AUTO INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_zgloszenia INT(11),
     autor_odp VARCHAR(30),
+    id_users INT(11),
     tekst_odp VARCHAR(700),
     data_odp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_zgloszenia) REFERENCES zgloszenia(id) ON DELETE CASCADE
-);
+    FOREIGN KEY (id_zgloszenia) REFERENCES zgloszenia(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_users) REFERENCES users(id) 
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci;
 
 CREATE TABLE IF NOT EXISTS users(
-    id INT AUTO INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     imie_user VARCHAR(20),
     nazwisko_user VARCHAR(20),
     email_user VARCHAR(20),
