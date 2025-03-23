@@ -1,9 +1,7 @@
 <?php
-
-$heading = 'Warehouse';
-
+require "router.php";
 
 
 $heading = "Home";
-require "router.php";
+
 require "views/index.view.php";

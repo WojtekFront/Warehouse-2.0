@@ -3,6 +3,8 @@
 $base_url ='/repo/Warehouse-2.0';
 $heading = 'Warehouse';
 
+require "functions.php";
+
 // router.php
 $script = $_SERVER["REQUEST_URI"];
 $script = parse_url($script, PHP_URL_PATH); // Pobierz tylko część ścieżki
