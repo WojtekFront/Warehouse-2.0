@@ -9,6 +9,8 @@
 
 <body class="h-full">
 
-
+<?php 
+// echo urlIs2("/about.php"); - funkcaj do testów
+?>
     <div class="min-h-full">
     
