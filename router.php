@@ -3,16 +3,14 @@
 $base_url ='/repo/Warehouse-2.0';
 $heading = 'Warehouse';
 
-require "functions.php";
-
 // router.php
 $script = $_SERVER["REQUEST_URI"];
-$script = parse_url($script, PHP_URL_PATH); // Pobierz tylko część ścieżki
-$script = trim($script, '/'); // Usuń początkowe i końcowe ukośniki
-$script = str_replace('repo/Warehouse-2.0', '', $script); // Usuń nazwę folderu projektu
+$script = parse_url($script, PHP_URL_PATH);
+$script = trim($script, '/');
+$script = str_replace('repo/Warehouse-2.0', '', $script);
 $path = pathinfo($script);
 if (empty($path["extension"])) {
-    $php = $script . ".php"; // Poprawna nazwa pliku
+    $php = $script . ".php";
     if (file_exists($php)) {
         include($php);
     } else {

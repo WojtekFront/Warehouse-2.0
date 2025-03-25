@@ -10,7 +10,7 @@
 <body class="h-full">
 
 <?php 
-// echo urlIs2("/about.php"); - funkcaj do testów
+// echo  urlIs(); 
 ?>
     <div class="min-h-full">
     

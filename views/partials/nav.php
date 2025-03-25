@@ -7,12 +7,9 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="<?php echo $base_url; ?>/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="<?php echo $base_url; ?>/about.php" class="<?= urlIs('/about.php') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="<?php echo $base_url; ?>/contact.php" class="<?= urlIs('/contact.php') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                        <
-                    </div>
+                    <a href="<?php echo $base_url; ?>/" class="<?= urlIs() === '/' ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="<?php echo $base_url; ?>/controllers/about.php" class="<?= urlIs() === '/about.php' ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="<?php echo $base_url; ?>/contact.php" class="<?= urlIs() === '/contact.php' ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a> </div>
                 </div>
             </div>
             <div class="hidden md:block">
